@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.4.9" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
+ <name>PEAR_PackageUpdate_Web</name>
+ <channel>pear.php.net</channel>
+ <summary>A Web front end for PEAR_PackageUpdate</summary>
+ <description>PEAR_PackageUpdate (PPU) is designed to allow developers to easily include auto updating features for other packages and PEAR installable applications. 
+
+PEAR_PackageUpdate_Web is a HTML web front end for PPU.</description>
+ <lead>
+  <name>Laurent Laville</name>
+  <user>farell</user>
+  <email>pear@laurent-laville.org</email>
+  <active>yes</active>
+ </lead>
+ <date>2006-05-10</date>
+ <time>22:32:51</time>
+ <version>
+  <release>0.2.0</release>
+  <api>1.0.0</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
+ <notes>- Initial PEAR release after last step of proposal 
+  http://pear.php.net/pepr/pepr-proposal-show.php?id=390
+- Stability moved from alpha to beta
+- Dependency to PPU is now set to 0.5.0 or better
+- Release Notes field have been replaced from QF:textarea to QF:static with an autoscroll div. It will allow to keep the same size to the main window, even when package has long text for release notes. When a QF:textarea is frozen, attributes rows, cols count are not kept.
+
+PPU and its frontend have a website: please visit http://pear.laurent-laville.org/PEAR_PackageUpdate</notes>
+ <contents>
+  <dir baseinstalldir="PEAR" name="/">
+   <dir name="examples">
+    <file name="info.gif" role="data" />
+    <file name="ppu.css" role="data" />
+    <file name="ppuWebExample1.php" role="doc" />
+    <file name="ppuWebExample2.php" role="doc" />
+    <file name="warning.gif" role="data" />
+   </dir> <!-- //examples -->
+   <file name="Web.php" role="php">
+    <tasks:replace from="@package_name@" to="name" type="package-info" />
+    <tasks:replace from="@package_version@" to="version" type="package-info" />
+    <tasks:replace from="@data_dir@" to="data_dir" type="pear-config" />
+   </file>
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>4.2.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.3</min>
+   </pearinstaller>
+   <package>
+    <name>PEAR_PackageUpdate</name>
+    <channel>pear.php.net</channel>
+    <min>0.5.0</min>
+   </package>
+   <package>
+    <name>HTML_QuickForm</name>
+    <channel>pear.php.net</channel>
+    <min>3.2.4</min>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.2.0</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2006-05-10</date>
+   <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
+   <notes>- Initial PEAR release after last step of proposal 
+  http://pear.php.net/pepr/pepr-proposal-show.php?id=390
+- Stability moved from alpha to beta
+- Dependency to PPU is now set to 0.5.0 or better
+- Release Notes field have been replaced from QF:textarea to QF:static with an autoscroll div. It will allow to keep the same size to the main window, even when package has long text for release notes. When a QF:textarea is frozen, attributes rows, cols count are not kept.
+
+PPU and its frontend have a website: please visit http://pear.laurent-laville.org/PEAR_PackageUpdate</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.1.0</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2006-04-22</date>
+   <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
+   <notes>first alpha release for proposal http://pear.php.net/pepr/pepr-proposal-show.php?id=390</notes>
+  </release>
+ </changelog>
+</package>
