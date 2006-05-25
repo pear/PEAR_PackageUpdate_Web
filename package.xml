@@ -3,7 +3,7 @@
 <package version="1.0" packagerversion="1.4.9">
  <name>PEAR_PackageUpdate_Web</name>
  <summary>A Web front end for PEAR_PackageUpdate</summary>
- <description>PEAR_PackageUpdate (PPU) is designed to allow developers to easily include auto updating features for other packages and PEAR installable applications. 
+ <description>PEAR_PackageUpdate (PPU) is designed to allow developers to easily include auto updating features for other packages and PEAR installable applications.
 
 PEAR_PackageUpdate_Web is a HTML web front end for PPU.
  </description>
@@ -16,17 +16,15 @@ PEAR_PackageUpdate_Web is a HTML web front end for PPU.
   </maintainer>
   </maintainers>
  <release>
-  <version>0.2.0</version>
-  <date>2006-05-10</date>
+  <version>0.2.1</version>
+  <date>2006-05-25</date>
   <license>PHP License 3.01</license>
   <state>beta</state>
-  <notes>- Initial PEAR release after last step of proposal 
-  http://pear.php.net/pepr/pepr-proposal-show.php?id=390
-- Stability moved from alpha to beta
-- Dependency to PPU is now set to 0.5.0 or better
-- Release Notes field have been replaced from QF:textarea to QF:static with an autoscroll div. It will allow to keep the same size to the main window, even when package has long text for release notes. When a QF:textarea is frozen, attributes rows, cols count are not kept.
+  <notes>* bug fix
+- base install directory error into package xml
 
-PPU and its frontend have a website: please visit http://pear.laurent-laville.org/PEAR_PackageUpdate
+* qa
+- pear installer dependency is 1.4.8 same as for PPU
   </notes>
   <deps>
    <dep type="php" rel="ge" version="4.2.0" optional="no"/>
@@ -34,7 +32,7 @@ PPU and its frontend have a website: please visit http://pear.laurent-laville.or
    <dep type="pkg" rel="ge" version="3.2.4" optional="no">HTML_QuickForm</dep>
   </deps>
   <filelist>
-   <dir name="/" baseinstalldir="PEAR">
+   <dir name="/" baseinstalldir="PEAR/PackageUpdate">
     <dir name="examples">
      <file role="data" name="info.gif"/>
      <file role="data" name="ppu.css"/>
@@ -52,11 +50,23 @@ PPU and its frontend have a website: please visit http://pear.laurent-laville.or
  </release>
  <changelog>
    <release>
+    <version>0.2.1</version>
+    <date>2006-05-25</date>
+    <license>PHP License 3.01</license>
+    <state>beta</state>
+    <notes>* bug fix
+- base install directory error into package xml
+
+* qa
+- pear installer dependency is 1.4.8 same as for PPU
+    </notes>
+   </release>
+   <release>
     <version>0.2.0</version>
     <date>2006-05-10</date>
     <license>PHP License 3.01</license>
     <state>beta</state>
-    <notes>- Initial PEAR release after last step of proposal 
+    <notes>- Initial PEAR release after last step of proposal
   http://pear.php.net/pepr/pepr-proposal-show.php?id=390
 - Stability moved from alpha to beta
 - Dependency to PPU is now set to 0.5.0 or better

@@ -3,7 +3,7 @@
  <name>PEAR_PackageUpdate_Web</name>
  <channel>pear.php.net</channel>
  <summary>A Web front end for PEAR_PackageUpdate</summary>
- <description>PEAR_PackageUpdate (PPU) is designed to allow developers to easily include auto updating features for other packages and PEAR installable applications. 
+ <description>PEAR_PackageUpdate (PPU) is designed to allow developers to easily include auto updating features for other packages and PEAR installable applications.
 
 PEAR_PackageUpdate_Web is a HTML web front end for PPU.</description>
  <lead>
@@ -12,10 +12,10 @@ PEAR_PackageUpdate_Web is a HTML web front end for PPU.</description>
   <email>pear@laurent-laville.org</email>
   <active>yes</active>
  </lead>
- <date>2006-05-10</date>
- <time>22:32:51</time>
+ <date>2006-05-25</date>
+ <time>17:04:21</time>
  <version>
-  <release>0.2.0</release>
+  <release>0.2.1</release>
   <api>1.0.0</api>
  </version>
  <stability>
@@ -23,22 +23,22 @@ PEAR_PackageUpdate_Web is a HTML web front end for PPU.</description>
   <api>beta</api>
  </stability>
  <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
- <notes>- Initial PEAR release after last step of proposal 
-  http://pear.php.net/pepr/pepr-proposal-show.php?id=390
-- Stability moved from alpha to beta
-- Dependency to PPU is now set to 0.5.0 or better
-- Release Notes field have been replaced from QF:textarea to QF:static with an autoscroll div. It will allow to keep the same size to the main window, even when package has long text for release notes. When a QF:textarea is frozen, attributes rows, cols count are not kept.
+ <notes>* bug fix
+- base install directory error into package xml
 
-PPU and its frontend have a website: please visit http://pear.laurent-laville.org/PEAR_PackageUpdate</notes>
+* qa
+- pear installer dependency is 1.4.8 same as for PPU
+
+ </notes>
  <contents>
-  <dir baseinstalldir="PEAR" name="/">
+  <dir baseinstalldir="PEAR/PackageUpdate" name="/">
    <dir name="examples">
     <file name="info.gif" role="data" />
     <file name="ppu.css" role="data" />
     <file name="ppuWebExample1.php" role="doc" />
     <file name="ppuWebExample2.php" role="doc" />
     <file name="warning.gif" role="data" />
-   </dir> <!-- //examples -->
+   </dir> <!-- /examples -->
    <file name="Web.php" role="php">
     <tasks:replace from="@package_name@" to="name" type="package-info" />
     <tasks:replace from="@package_version@" to="version" type="package-info" />
@@ -52,7 +52,7 @@ PPU and its frontend have a website: please visit http://pear.laurent-laville.or
     <min>4.2.0</min>
    </php>
    <pearinstaller>
-    <min>1.4.3</min>
+    <min>1.4.8</min>
    </pearinstaller>
    <package>
     <name>PEAR_PackageUpdate</name>
@@ -70,6 +70,25 @@ PPU and its frontend have a website: please visit http://pear.laurent-laville.or
  <changelog>
   <release>
    <version>
+    <release>0.2.1</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2006-05-25</date>
+   <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
+   <notes>* bug fix
+- base install directory error into package xml
+
+* qa
+- pear installer dependency is 1.4.8 same as for PPU
+
+   </notes>
+  </release>
+  <release>
+   <version>
     <release>0.2.0</release>
     <api>1.0.0</api>
    </version>
@@ -79,7 +98,7 @@ PPU and its frontend have a website: please visit http://pear.laurent-laville.or
    </stability>
    <date>2006-05-10</date>
    <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
-   <notes>- Initial PEAR release after last step of proposal 
+   <notes>- Initial PEAR release after last step of proposal
   http://pear.php.net/pepr/pepr-proposal-show.php?id=390
 - Stability moved from alpha to beta
 - Dependency to PPU is now set to 0.5.0 or better
