@@ -570,7 +570,7 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
 <style type="text/css">
 <!--
 $styles
-// -->
+ -->
 </style>
 CSS;
 
