@@ -12,10 +12,10 @@ PEAR_PackageUpdate_Web is a HTML web front end for PPU.</description>
   <email>pear@laurent-laville.org</email>
   <active>yes</active>
  </lead>
- <date>2006-05-25</date>
- <time>17:04:21</time>
+ <date>2006-07-15</date>
+ <time>16:15:30</time>
  <version>
-  <release>0.2.1</release>
+  <release>0.2.2</release>
   <api>1.0.0</api>
  </version>
  <stability>
@@ -23,13 +23,11 @@ PEAR_PackageUpdate_Web is a HTML web front end for PPU.</description>
   <api>beta</api>
  </stability>
  <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
- <notes>* bug fix
-- base install directory error into package xml
+ <notes>* fixed dependencies:
+- required at least PHP 4.3.0 due to usage of function: file_get_contents
+and also because PPU used itself php 4.3.0 as minimum version
 
-* qa
-- pear installer dependency is 1.4.8 same as for PPU
-
- </notes>
+- use now the latest QuickForm 3.2.6</notes>
  <contents>
   <dir baseinstalldir="PEAR/PackageUpdate" name="/">
    <dir name="examples">
@@ -38,7 +36,7 @@ PEAR_PackageUpdate_Web is a HTML web front end for PPU.</description>
     <file name="ppuWebExample1.php" role="doc" />
     <file name="ppuWebExample2.php" role="doc" />
     <file name="warning.gif" role="data" />
-   </dir> <!-- /examples -->
+   </dir> <!-- //examples -->
    <file name="Web.php" role="php">
     <tasks:replace from="@package_name@" to="name" type="package-info" />
     <tasks:replace from="@package_version@" to="version" type="package-info" />
@@ -49,7 +47,7 @@ PEAR_PackageUpdate_Web is a HTML web front end for PPU.</description>
  <dependencies>
   <required>
    <php>
-    <min>4.2.0</min>
+    <min>4.3.0</min>
    </php>
    <pearinstaller>
     <min>1.4.8</min>
@@ -57,17 +55,34 @@ PEAR_PackageUpdate_Web is a HTML web front end for PPU.</description>
    <package>
     <name>PEAR_PackageUpdate</name>
     <channel>pear.php.net</channel>
-    <min>0.5.0</min>
+    <min>0.5.1</min>
    </package>
    <package>
     <name>HTML_QuickForm</name>
     <channel>pear.php.net</channel>
-    <min>3.2.4</min>
+    <min>3.2.6</min>
    </package>
   </required>
  </dependencies>
  <phprelease />
  <changelog>
+  <release>
+   <version>
+    <release>0.2.2</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2006-07-15</date>
+   <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
+   <notes>* fixed dependencies:
+- required at least PHP 4.3.0 due to usage of function: file_get_contents
+and also because PPU used itself php 4.3.0 as minimum version
+
+- use now the latest QuickForm 3.2.6</notes>
+  </release>
   <release>
    <version>
     <release>0.2.1</release>
@@ -83,9 +98,7 @@ PEAR_PackageUpdate_Web is a HTML web front end for PPU.</description>
 - base install directory error into package xml
 
 * qa
-- pear installer dependency is 1.4.8 same as for PPU
-
-   </notes>
+- pear installer dependency is 1.4.8 same as for PPU</notes>
   </release>
   <release>
    <version>

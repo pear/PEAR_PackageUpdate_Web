@@ -16,20 +16,20 @@ PEAR_PackageUpdate_Web is a HTML web front end for PPU.
   </maintainer>
   </maintainers>
  <release>
-  <version>0.2.1</version>
-  <date>2006-05-25</date>
+  <version>0.2.2</version>
+  <date>2006-07-15</date>
   <license>PHP License 3.01</license>
   <state>beta</state>
-  <notes>* bug fix
-- base install directory error into package xml
+  <notes>* fixed dependencies:
+- required at least PHP 4.3.0 due to usage of function: file_get_contents
+and also because PPU used itself php 4.3.0 as minimum version
 
-* qa
-- pear installer dependency is 1.4.8 same as for PPU
+- use now the latest QuickForm 3.2.6
   </notes>
   <deps>
    <dep type="php" rel="ge" version="4.2.0" optional="no"/>
-   <dep type="pkg" rel="ge" version="0.5.0" optional="no">PEAR_PackageUpdate</dep>
-   <dep type="pkg" rel="ge" version="3.2.4" optional="no">HTML_QuickForm</dep>
+   <dep type="pkg" rel="ge" version="0.5.1" optional="no">PEAR_PackageUpdate</dep>
+   <dep type="pkg" rel="ge" version="3.2.6" optional="no">HTML_QuickForm</dep>
   </deps>
   <filelist>
    <dir name="/" baseinstalldir="PEAR/PackageUpdate">
@@ -49,6 +49,18 @@ PEAR_PackageUpdate_Web is a HTML web front end for PPU.
   </filelist>
  </release>
  <changelog>
+   <release>
+    <version>0.2.2</version>
+    <date>2006-07-15</date>
+    <license>PHP License 3.01</license>
+    <state>beta</state>
+    <notes>* fixed dependencies:
+- required at least PHP 4.3.0 due to usage of function: file_get_contents
+and also because PPU used itself php 4.3.0 as minimum version
+
+- use now the latest QuickForm 3.2.6
+    </notes>
+   </release>
    <release>
     <version>0.2.1</version>
     <date>2006-05-25</date>
