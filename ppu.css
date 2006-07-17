@@ -1,0 +1,23 @@
+/**
+ * Default stylesheet used to display the PEAR_PackageUpdate Web frontend
+ *
+ * @category   PEAR
+ * @package    PEAR_PackageUpdate_Web
+ * @author     Laurent Laville <pear@laurent-laville.org>
+ * @copyright  2006 Laurent Laville
+ * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @version    CVS:$
+ * @since      File available since Release 0.3.0
+ */
+
+.widget-header {
+  white-space: nowrap;
+  background-color: #CCCCCC;
+  font-weight: bold;
+}
+
+.widget-label {
+  white-space: nowrap;
+  vertical-align: top;
+  font-weight: bold;
+}
