@@ -13,10 +13,6 @@
 
 require_once 'PEAR/PackageUpdate.php';
 
-// The very most simple way to customize skin of your PPU web frontend.
-// Defines location (directory) where the frontend will find a 'ppu.css' file
-define('PEAR_PACKAGEUPDATE_DATA_DIR', dirname(__FILE__) . DIRECTORY_SEPARATOR );
-
 // Create a Web package updater for the DB_DataObject package on pear channel.
 $ppu = PEAR_PackageUpdate::factory('Web', 'DB_DataObject', 'pear');
 
@@ -26,6 +22,9 @@ if ($ppu === false) {
     echo "You might want to check for and install updates manually.\n";
     die();
 }
+
+// set your own styles, rather than use the default stylesheet
+$ppu->setStyleSheet(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'ppugreyskin.css');
 
 // Check to see if any updates are availble.
 if ($ppu->checkUpdate()) {
