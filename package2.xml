@@ -12,10 +12,10 @@ PEAR_PackageUpdate_Web is a HTML web front end for PPU.</description>
   <email>pear@laurent-laville.org</email>
   <active>yes</active>
  </lead>
- <date>2006-07-15</date>
- <time>16:15:30</time>
+ <date>2006-07-17</date>
+ <time>21:04:13</time>
  <version>
-  <release>0.2.2</release>
+  <release>0.3.0</release>
   <api>1.0.0</api>
  </version>
  <stability>
@@ -23,20 +23,26 @@ PEAR_PackageUpdate_Web is a HTML web front end for PPU.</description>
   <api>beta</api>
  </stability>
  <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
- <notes>* fixed dependencies:
-- required at least PHP 4.3.0 due to usage of function: file_get_contents
-and also because PPU used itself php 4.3.0 as minimum version
+ <notes>* news
+- removed PEAR_PACKAGEUPDATE_DATA_DIR constant, and replace behavior
+with new methods getStyleSheet() and setStyleSheet().
 
-- use now the latest QuickForm 3.2.6</notes>
+Allow to include all stylesheet file name as you want and not only as in previous version : ppu.css
+But you can also put a link to a stylesheet rather than include code in html output page
+=&gt; requires to extends class with a new toHtml() method.
+
+- When package you&apos;re trying to auto-update is not yet installed, it will now display &apos;- None -&apos; in current version field rather than &apos;0.0.0&apos; given by ppu backend.
+ </notes>
  <contents>
   <dir baseinstalldir="PEAR/PackageUpdate" name="/">
    <dir name="examples">
-    <file name="info.gif" role="data" />
-    <file name="ppu.css" role="data" />
+    <file name="info.gif" role="doc" />
+    <file name="ppugreyskin.css" role="doc" />
     <file name="ppuWebExample1.php" role="doc" />
     <file name="ppuWebExample2.php" role="doc" />
-    <file name="warning.gif" role="data" />
+    <file name="warning.gif" role="doc" />
    </dir> <!-- //examples -->
+   <file name="ppu.css" role="data" />
    <file name="Web.php" role="php">
     <tasks:replace from="@package_name@" to="name" type="package-info" />
     <tasks:replace from="@package_version@" to="version" type="package-info" />
@@ -66,6 +72,28 @@ and also because PPU used itself php 4.3.0 as minimum version
  </dependencies>
  <phprelease />
  <changelog>
+  <release>
+   <version>
+    <release>0.3.0</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2006-07-17</date>
+   <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
+   <notes>* news
+- removed PEAR_PACKAGEUPDATE_DATA_DIR constant, and replace behavior
+with new methods getStyleSheet() and setStyleSheet().
+
+Allow to include all stylesheet file name as you want and not only as in previous version : ppu.css
+But you can also put a link to a stylesheet rather than include code in html output page
+=&gt; requires to extends class with a new toHtml() method.
+
+- When package you&apos;re trying to auto-update is not yet installed, it will now display &apos;- None -&apos; in current version field rather than &apos;0.0.0&apos; given by ppu backend.
+   </notes>
+  </release>
   <release>
    <version>
     <release>0.2.2</release>
