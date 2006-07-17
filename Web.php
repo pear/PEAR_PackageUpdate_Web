@@ -22,12 +22,6 @@
 require_once 'PEAR/PackageUpdate.php';
 require_once 'HTML/QuickForm.php';
 
-if (!defined('PEAR_PACKAGEUPDATE_DATA_DIR')) {
-    define('PEAR_PACKAGEUPDATE_DATA_DIR',
-        '@data_dir@' . DIRECTORY_SEPARATOR .
-        '@package_name@' . DIRECTORY_SEPARATOR);
-}
-
 /**
  * This is a HTML driver for PEAR_PackageUpdate.
  *
@@ -123,6 +117,15 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
     var $errwidget;
 
     /**
+     * Style sheet for the custom layout
+     *
+     * @var    string
+     * @access public
+     * @since  0.3.0
+     */
+    var $css;
+
+    /**
      * Creates the dialog that will ask the user if it is ok to update.
      *
      * @access protected
@@ -155,9 +158,10 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
             '</div>'
         );
         $this->mainwidget->addElement('text', 'release_by', 'Released By:');
+        $current_version = ($this->instVersion === '0.0.0') ? '- None -' : $this->instVersion;
 
         $this->mainwidget->setDefaults(array(
-            'current_version' => $this->instVersion,
+            'current_version' => $current_version,
             'release_version' => $this->latestVersion,
             'release_date'    => $this->info['releasedate'],
             'release_state'   => $this->info['state'],
@@ -539,6 +543,48 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
     }
 
     /**
+     * Returns the custom style sheet to use for layout
+     *
+     * @param  bool  $content (optional) Either return css filename or string contents
+     * @return string
+     * @access public
+     * @since  0.3.0
+     */
+    function getStyleSheet($content = true)
+    {
+        if ($content) {
+            $styles = file_get_contents($this->css);
+        } else {
+            $styles = $this->css;
+        }
+        return $styles;
+    }
+
+    /**
+     * Set the custom style sheet to use your own styles
+     *
+     * @param  string  $css (optional) File to read user-defined styles from
+     * @return bool    True if custom styles, false if default styles applied
+     * @access public
+     * @since  0.3.0
+     */
+    function setStyleSheet($css = null)
+    {
+        // default stylesheet is into package data directory
+        if (!isset($css)) {
+            $this->css = '@data_dir@' . DIRECTORY_SEPARATOR
+                 . '@package_name@' . DIRECTORY_SEPARATOR
+                 . 'ppu.css';
+        }
+
+        $res = isset($css) && file_exists($css);
+        if ($res) {
+            $this->css = $css;
+        }
+        return $res;
+    }
+
+    /**
      * Returns HTML code of a dialog box.
      *
      * @access public
@@ -547,32 +593,13 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
      */
     function toHtml($renderer)
     {
-        $css = PEAR_PACKAGEUPDATE_DATA_DIR . 'ppu.css';
-        if (file_exists($css)) {
-            $styles = file_get_contents($css);
-        } else {
-            $styles = '
-.widget-header {
-  white-space: nowrap;
-  background-color: #CCCCCC;
-  font-weight: bold;
-}
-
-.widget-label {
-  white-space: nowrap;
-  vertical-align: top;
-  font-weight: bold;
-}';
+        if (!isset($this->css)) {
+            // when no user-styles defined, used the default values
+            $this->setStyleSheet();
         }
-        $body = $renderer->toHtml();
+        $styles = $this->getStyleSheet();
 
-        $styles = <<<CSS
-<style type="text/css">
-<!--
-$styles
- -->
-</style>
-CSS;
+        $body = $renderer->toHtml();
 
         $html = <<<HTML
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -580,7 +607,11 @@ CSS;
 <head>
 <title>PEAR_PackageUpdate Web Frontend</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+<!--
 $styles
+ -->
+</style>
 </head>
 <body>
 $body
