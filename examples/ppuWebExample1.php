@@ -7,7 +7,7 @@
  * @package   PEAR_PackageUpdate_Web
  * @version   $Id$
  * @license   http://www.php.net/license/3_01.txt  PHP License 3.01
- * @copyright 2006 Laurent Laville
+ * @copyright 2006-2007 Laurent Laville
  * @ignore
  */
 

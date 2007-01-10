@@ -13,7 +13,7 @@
  * @category   PEAR
  * @package    PEAR_PackageUpdate_Web
  * @author     Laurent Laville <pear@laurent-laville.org>
- * @copyright  2006 Laurent Laville
+ * @copyright  2006-2007 Laurent Laville
  * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
  * @version    CVS: $Id$
  * @since      File available since Release 0.1.0
@@ -81,7 +81,7 @@ require_once 'HTML/QuickForm.php';
  * @category   PEAR
  * @package    PEAR_PackageUpdate_Web
  * @author     Laurent Laville <pear@laurent-laville.org>
- * @copyright  2006 Laurent Laville
+ * @copyright  2006-2007 Laurent Laville
  * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
  * @version    Release: @package_version@
  * @since      Class available since Release 0.1.0
