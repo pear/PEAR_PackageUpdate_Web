@@ -19,7 +19,6 @@
  * @since      File available since Release 0.1.0
  */
 
-require_once 'PEAR/PackageUpdate.php';
 require_once 'HTML/QuickForm.php';
 
 /**
