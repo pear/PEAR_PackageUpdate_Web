@@ -355,6 +355,29 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
     }
 
     /**
+     * Checks to see if an update is available,
+     * and if package was already installed.
+     *
+     * Respects the user preferences when determining if an
+     * update is available. Returns true if an update is available
+     * and the user may want to update the package.
+     *
+     * @access public
+     * @return boolean true if an update is available.
+     * @since  0.4.0
+     */
+    function checkUpdate()
+    {
+        if (parent::checkUpdate()) {
+            if ($this->instVersion == '0.0.0') {
+                $this->pushError(PEAR_PACKAGEUPDATE_ERROR_NOTINSTALLED,
+                    'warning', array('packagename' => $this->packageName)
+                    );
+            }
+        }
+    }
+
+    /**
      * Presents the user with the option to update.
      *
      * @access public
