@@ -44,8 +44,13 @@ $p2->setReleaseVersion('0.4.0');
 $p2->setAPIVersion('1.0.0');
 $p2->setReleaseStability('beta');
 $p2->setAPIStability('beta');
-$p2->setNotes('* news
+$p2->setNotes('* IMPORTANT
+This beta version will be the last one before final stable release 1.0.0
 
+* changes
+- copyright notice bumped to 2007
+- removed PPU resource from main class.
+- prevent updating new copy of a package if it was not installed first
 ');
 
 if (isset($_GET['make']) || (isset($_SERVER['argv']) && @$_SERVER['argv'][1] == 'make')) {
