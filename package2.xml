@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.4.9" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
+<package packagerversion="1.6.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
  <name>PEAR_PackageUpdate_Web</name>
  <channel>pear.php.net</channel>
  <summary>A Web front end for PEAR_PackageUpdate</summary>
@@ -12,10 +12,10 @@ PEAR_PackageUpdate_Web is a HTML web front end for PPU.</description>
   <email>pear@laurent-laville.org</email>
   <active>yes</active>
  </lead>
- <date>2006-07-17</date>
- <time>21:04:13</time>
+ <date>2007-07-01</date>
+ <time>08:53:55</time>
  <version>
-  <release>0.3.0</release>
+  <release>0.4.0</release>
   <api>1.0.0</api>
  </version>
  <stability>
@@ -23,23 +23,23 @@ PEAR_PackageUpdate_Web is a HTML web front end for PPU.</description>
   <api>beta</api>
  </stability>
  <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
- <notes>* news
-- removed PEAR_PACKAGEUPDATE_DATA_DIR constant, and replace behavior
-with new methods getStyleSheet() and setStyleSheet().
+ <notes>* IMPORTANT
+This beta version will be the last one before final stable release 1.0.0
 
-Allow to include all stylesheet file name as you want and not only as in previous version : ppu.css
-But you can also put a link to a stylesheet rather than include code in html output page
-=&gt; requires to extends class with a new toHtml() method.
-
-- When package you&apos;re trying to auto-update is not yet installed, it will now display &apos;- None -&apos; in current version field rather than &apos;0.0.0&apos; given by ppu backend.
+* changes
+- copyright notice bumped to 2007
+- removed PPU resource from main class.
+- prevent updating new copy of a package if it was not installed first
  </notes>
  <contents>
   <dir baseinstalldir="PEAR/PackageUpdate" name="/">
    <dir name="examples">
     <file name="info.gif" role="doc" />
     <file name="ppugreyskin.css" role="doc" />
+    <file name="ppuweb3.css" role="doc" />
     <file name="ppuWebExample1.php" role="doc" />
     <file name="ppuWebExample2.php" role="doc" />
+    <file name="ppuWebExample3.php" role="doc" />
     <file name="warning.gif" role="doc" />
    </dir> <!-- //examples -->
    <file name="ppu.css" role="data" />
@@ -74,6 +74,26 @@ But you can also put a link to a stylesheet rather than include code in html out
  <changelog>
   <release>
    <version>
+    <release>0.4.0</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2007-07-01</date>
+   <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
+   <notes>* IMPORTANT
+This beta version will be the last one before final stable release 1.0.0
+
+* changes
+- copyright notice bumped to 2007
+- removed PPU resource from main class.
+- prevent updating new copy of a package if it was not installed first
+   </notes>
+  </release>
+  <release>
+   <version>
     <release>0.3.0</release>
     <api>1.0.0</api>
    </version>
@@ -91,8 +111,7 @@ Allow to include all stylesheet file name as you want and not only as in previou
 But you can also put a link to a stylesheet rather than include code in html output page
 =&gt; requires to extends class with a new toHtml() method.
 
-- When package you&apos;re trying to auto-update is not yet installed, it will now display &apos;- None -&apos; in current version field rather than &apos;0.0.0&apos; given by ppu backend.
-   </notes>
+- When package you&apos;re trying to auto-update is not yet installed, it will now display &apos;- None -&apos; in current version field rather than &apos;0.0.0&apos; given by ppu backend.</notes>
   </release>
   <release>
    <version>
