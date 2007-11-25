@@ -3,18 +3,35 @@
  * An example script that update PEAR::DB_DataObject
  * using PEAR_PackageUpdate with a Web front end, and a custom html layout.
  *
- * @author    Laurent Laville
+ * PHP versions 4 and 5
+ *
+ * @category  PEAR
  * @package   PEAR_PackageUpdate_Web
- * @version   $Id$
- * @license   http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @author    Laurent Laville <pear@laurent-laville.org>
  * @copyright 2006-2007 Laurent Laville
+ * @license   http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @version   CVS: $Id$
+ * @link      http://pear.php.net/package/PEAR_PackageUpdate_Web
  * @ignore
  */
 
 require_once 'PEAR/PackageUpdate/Web.php';
 
+/**
+ * Custom html layout
+ *
+ * @ignore
+ */
 class PEAR_PackageUpdate_Web3 extends PEAR_PackageUpdate_Web
 {
+    /**
+     * Returns HTML code of a dialog box.
+     *
+     * @param object $renderer instance of a QuickForm renderer
+     *
+     * @access public
+     * @return string
+     */
     function toHtml($renderer)
     {
         $styles = basename($this->getStyleSheet(false));

@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * This is a HTML driver for PEAR_PackageUpdate.
  *
  * PHP versions 4 and 5
@@ -10,13 +10,14 @@
  * the PHP License and are unable to obtain it through the web, please
  * send a note to license@php.net so we can mail you a copy immediately.
  *
- * @category   PEAR
- * @package    PEAR_PackageUpdate_Web
- * @author     Laurent Laville <pear@laurent-laville.org>
- * @copyright  2006-2007 Laurent Laville
- * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
- * @version    CVS: $Id$
- * @since      File available since Release 0.1.0
+ * @category  PEAR
+ * @package   PEAR_PackageUpdate_Web
+ * @author    Laurent Laville <pear@laurent-laville.org>
+ * @copyright 2006-2007 Laurent Laville
+ * @license   http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @version   CVS: $Id$
+ * @link      http://pear.php.net/package/PEAR_PackageUpdate_Web
+ * @since     File available since Release 0.1.0
  */
 
 require_once 'HTML/QuickForm.php';
@@ -77,13 +78,14 @@ require_once 'HTML/QuickForm.php';
  * ?>
  * </code>
  *
- * @category   PEAR
- * @package    PEAR_PackageUpdate_Web
- * @author     Laurent Laville <pear@laurent-laville.org>
- * @copyright  2006-2007 Laurent Laville
- * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
- * @version    Release: @package_version@
- * @since      Class available since Release 0.1.0
+ * @category  PEAR
+ * @package   PEAR_PackageUpdate_Web
+ * @author    Laurent Laville <pear@laurent-laville.org>
+ * @copyright 2006-2007 Laurent Laville
+ * @license   http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @version   Release: @package_version@
+ * @link      http://pear.php.net/package/PEAR_PackageUpdate_Web
+ * @since     Class available since Release 0.1.0
  */
 
 class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
@@ -144,20 +146,23 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
         // Create an image placeholder and the message for the dialog.
         $msg  = 'A new version of ' . $this->packageName . ' ';
         $msg .= " is available.\n\nWould you like to upgrade?";
-        $this->mainwidget->addElement('static', 'message', '<div id="widget-icon-info"></div>', nl2br($msg));
+        $this->mainwidget->addElement('static', 'message',
+            '<div id="widget-icon-info"></div>', nl2br($msg));
 
         // The update details.
-        $this->mainwidget->addElement('text', 'current_version', 'Current Version:');
-        $this->mainwidget->addElement('text', 'release_version', 'Release Version:');
+        $this->mainwidget->addElement('text', 'current_version',
+            'Current Version:');
+        $this->mainwidget->addElement('text', 'release_version',
+            'Release Version:');
         $this->mainwidget->addElement('text', 'release_date', 'Release Date:');
         $this->mainwidget->addElement('text', 'release_state', 'Release State:');
         $this->mainwidget->addElement('static', 'release_notes', 'Release Notes:',
             '<div class="autoscroll">' .
             nl2br($this->info['releasenotes']) .
-            '</div>'
-        );
+            '</div>');
         $this->mainwidget->addElement('text', 'release_by', 'Released By:');
-        $current_version = ($this->instVersion === '0.0.0') ? '- None -' : $this->instVersion;
+        $current_version = ($this->instVersion === '0.0.0')
+            ? '- None -' : $this->instVersion;
 
         $this->mainwidget->setDefaults(array(
             'current_version' => $current_version,
@@ -169,7 +174,8 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
 
         $buttons = array();
         // Add the preferences button.
-        $buttons[] = &HTML_QuickForm::createElement('submit', 'btnPrefs', 'Preferences');
+        $buttons[] = &HTML_QuickForm::createElement('submit',
+                         'btnPrefs', 'Preferences');
 
         // Add the yes/no buttons.
         $buttons[] = &HTML_QuickForm::createElement('submit', 'mainBtnNo', 'No');
@@ -182,6 +188,8 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
 
     /**
      * Creates the dialog that will ask the user for his preferences.
+     *
+     * @param array $prefs User's preferences
      *
      * @access protected
      * @return void
@@ -198,27 +206,37 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
         $this->prefwidget->addElement('header', '', $title);
 
         // It needs a check box for "Don't ask again"
-        $this->prefwidget->addElement('checkbox', 'dontAsk', '', 'Don\'t ask me again');
+        $this->prefwidget->addElement('checkbox', 'dontAsk',
+            '', 'Don\'t ask me again');
         // Set the default.
         if (isset($prefs[PEAR_PACKAGEUPDATE_PREF_NOUPDATES])) {
-            $this->prefwidget->setDefaults(array('dontAsk' => $prefs[PEAR_PACKAGEUPDATE_PREF_NOUPDATES]));
+            $this->prefwidget->setDefaults(array(
+                'dontAsk' => $prefs[PEAR_PACKAGEUPDATE_PREF_NOUPDATES]));
         }
 
         // It needs a check box for the next release.
-        $this->prefwidget->addElement('checkbox', 'nextRelease', '', 'Don\'t ask again until the next release.');
+        $this->prefwidget->addElement('checkbox', 'nextRelease',
+            '', 'Don\'t ask again until the next release.');
         // Set the default.
         if (isset($prefs[PEAR_PACKAGEUPDATE_PREF_NEXTRELEASE])) {
-            $this->prefwidget->setDefaults(array('nextRelease' => $prefs[PEAR_PACKAGEUPDATE_PREF_NEXTRELEASE]));
+            $this->prefwidget->setDefaults(array(
+                'nextRelease' => $prefs[PEAR_PACKAGEUPDATE_PREF_NEXTRELEASE]));
         }
 
         // It needs a radio group for the state.
-        $allStates = array();
-        $allStates[] = &HTML_QuickForm::createElement('radio', null, null, 'All states', 'all');
-        $allStates[] = &HTML_QuickForm::createElement('radio', null, null, 'devel', PEAR_PACKAGEUPDATE_STATE_DEVEL);
-        $allStates[] = &HTML_QuickForm::createElement('radio', null, null, 'alpha', PEAR_PACKAGEUPDATE_STATE_ALPHA);
-        $allStates[] = &HTML_QuickForm::createElement('radio', null, null, 'beta', PEAR_PACKAGEUPDATE_STATE_BETA);
-        $allStates[] = &HTML_QuickForm::createElement('radio', null, null, 'stable', PEAR_PACKAGEUPDATE_STATE_STABLE);
-        $this->prefwidget->addGroup($allStates, 'allStates', 'Only ask when the state is at least:', '<br />');
+        $allStates   = array();
+        $allStates[] = &HTML_QuickForm::createElement('radio', null, null,
+                          'All states', 'all');
+        $allStates[] = &HTML_QuickForm::createElement('radio', null, null,
+                          'devel', PEAR_PACKAGEUPDATE_STATE_DEVEL);
+        $allStates[] = &HTML_QuickForm::createElement('radio', null, null,
+                          'alpha', PEAR_PACKAGEUPDATE_STATE_ALPHA);
+        $allStates[] = &HTML_QuickForm::createElement('radio', null, null,
+                          'beta', PEAR_PACKAGEUPDATE_STATE_BETA);
+        $allStates[] = &HTML_QuickForm::createElement('radio', null, null,
+                          'stable', PEAR_PACKAGEUPDATE_STATE_STABLE);
+        $this->prefwidget->addGroup($allStates, 'allStates',
+            'Only ask when the state is at least:', '<br />');
         // Set the default.
         $stateDef = (isset($prefs[PEAR_PACKAGEUPDATE_PREF_STATE])) ?
             $prefs[PEAR_PACKAGEUPDATE_PREF_STATE] : 'all';
@@ -226,19 +244,24 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
 
 
         // It needs a radio group for the type.
-        $allTypes = array();
-        $allTypes[] = &HTML_QuickForm::createElement('radio', null, null, 'All Release Types', 'all');
-        $allTypes[] = &HTML_QuickForm::createElement('radio', null, null, 'Bug fix', PEAR_PACKAGEUPDATE_TYPE_BUG);
-        $allTypes[] = &HTML_QuickForm::createElement('radio', null, null, 'Minor', PEAR_PACKAGEUPDATE_TYPE_MINOR);
-        $allTypes[] = &HTML_QuickForm::createElement('radio', null, null, 'Major', PEAR_PACKAGEUPDATE_TYPE_MAJOR);
-        $this->prefwidget->addGroup($allTypes, 'allTypes', 'Only ask when the type is at least:', '<br />');
+        $allTypes   = array();
+        $allTypes[] = &HTML_QuickForm::createElement('radio', null, null,
+                         'All Release Types', 'all');
+        $allTypes[] = &HTML_QuickForm::createElement('radio', null, null,
+                         'Bug fix', PEAR_PACKAGEUPDATE_TYPE_BUG);
+        $allTypes[] = &HTML_QuickForm::createElement('radio', null, null,
+                         'Minor', PEAR_PACKAGEUPDATE_TYPE_MINOR);
+        $allTypes[] = &HTML_QuickForm::createElement('radio', null, null,
+                         'Major', PEAR_PACKAGEUPDATE_TYPE_MAJOR);
+        $this->prefwidget->addGroup($allTypes, 'allTypes',
+            'Only ask when the type is at least:', '<br />');
         // Set the default.
         $typeDef = (isset($prefs[PEAR_PACKAGEUPDATE_PREF_TYPE])) ?
             $prefs[PEAR_PACKAGEUPDATE_PREF_TYPE] : 'all';
         $this->prefwidget->setDefaults(array('allTypes' => $typeDef));
 
-        $buttons = array();
         // Add the yes/no buttons.
+        $buttons   = array();
         $buttons[] = &HTML_QuickForm::createElement('submit', 'prefBtnNo', 'No');
         $buttons[] = &HTML_QuickForm::createElement('submit', 'prefBtnYes', 'Yes');
 
@@ -247,6 +270,9 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
 
     /**
      * Creates the dialog that will show errors to the user.
+     *
+     * @param boolean $context (optional) Decides to show or not
+     *                         the context (file, line) of error
      *
      * @access protected
      * @return void
@@ -264,11 +290,13 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
         $this->errwidget->removeAttribute('name');        // XHTML compliance
 
         // Create a title string.
-        $title = 'Error(s) occured while trying to Update for: ' . $this->packageName;
+        $title = 'Error(s) occured while trying to Update for: ' .
+                 $this->packageName;
         $this->errwidget->addElement('header', '', $title);
 
         // Create an image placeholder and the message for the dialog.
-        $this->errwidget->addElement('static', 'icon', '<div id="widget-icon-error"></div>');
+        $this->errwidget->addElement('static', 'icon',
+            '<div id="widget-icon-error"></div>');
         $this->errwidget->addElement('static', 'message', 'Message:');
 
         if ($context) {
@@ -321,7 +349,8 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
                 $prefs[PEAR_PACKAGEUPDATE_PREF_NOUPDATES] = isset($safe['dontAsk']);
 
                 // Check for next version.
-                $prefs[PEAR_PACKAGEUPDATE_PREF_NEXTRELEASE] = isset($safe['nextRelease']);
+                $prefs[PEAR_PACKAGEUPDATE_PREF_NEXTRELEASE]
+                    = isset($safe['nextRelease']);
 
                 // Check for type.
                 $prefs[PEAR_PACKAGEUPDATE_PREF_TYPE] = $safe['allTypes'];
@@ -371,8 +400,7 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
         if (parent::checkUpdate()) {
             if ($this->instVersion == '0.0.0') {
                 $this->pushError(PEAR_PACKAGEUPDATE_ERROR_NOTINSTALLED,
-                    'warning', array('packagename' => $this->packageName)
-                    );
+                    'warning', array('packagename' => $this->packageName));
             }
         }
     }
@@ -417,8 +445,10 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
     /**
      * Presents an error in a dialog window.
      *
+     * @param boolean $context (optional) true if you want to have
+     *                         error context details
+     *
      * @access public
-     * @param  boolean $context  true if you want to have error context details
      * @return boolean true if an error was displayed.
      * @since  0.1.0
      */
@@ -475,6 +505,8 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
     /**
      * Returns HTML renderer for a dialog with input labels and values
      *
+     * @param object &$widget instance of HTML_QuickForm (main dialog)
+     *
      * @access protected
      * @return object  instance of a QuickForm renderer
      * @since  0.1.0
@@ -495,7 +527,8 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
             . "\n</tr>";
 
         $elementTemplate = "\n<tr>"
-            . "\n\t<td class=\"widget-label\"><!-- BEGIN label -->{label}<!-- END label --></td>"
+            . "\n\t<td class=\"widget-label\">"
+            . "<!-- BEGIN label -->{label}<!-- END label --></td>"
             . "\n\t<td class=\"widget-input\">{element}</td>"
             . "\n</tr>";
 
@@ -518,6 +551,8 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
 
     /**
      * Returns HTML renderer for a dialog with only input values (no labels)
+     *
+     * @param object &$widget instance of HTML_QuickForm (main dialog)
      *
      * @access protected
      * @return object  instance of a QuickForm renderer
@@ -547,7 +582,8 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
             . "\n</tr>";
 
         $elementRadio = "\n<tr>"
-            . "\n\t<td class=\"widget-input\"><!-- BEGIN label -->{label}<!-- END label --><br />{element}</td>"
+            . "\n\t<td class=\"widget-input\">"
+            . "<!-- BEGIN label -->{label}<!-- END label --><br />{element}</td>"
             . "\n</tr>";
 
         $renderer =& $widget->defaultRenderer();
@@ -567,7 +603,8 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
     /**
      * Returns the custom style sheet to use for layout
      *
-     * @param  bool  $content (optional) Either return css filename or string contents
+     * @param bool $content (optional) Either return css filename or string contents
+     *
      * @return string
      * @access public
      * @since  0.3.0
@@ -585,7 +622,8 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
     /**
      * Set the custom style sheet to use your own styles
      *
-     * @param  string  $css (optional) File to read user-defined styles from
+     * @param string $css (optional) File to read user-defined styles from
+     *
      * @return bool    True if custom styles, false if default styles applied
      * @access public
      * @since  0.3.0
@@ -609,6 +647,8 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
     /**
      * Returns HTML code of a dialog box.
      *
+     * @param object $renderer instance of a QuickForm renderer
+     *
      * @access public
      * @return string
      * @since  0.1.0
@@ -624,7 +664,8 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
         $body = $renderer->toHtml();
 
         $html = <<<HTML
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
 <title>PEAR_PackageUpdate Web Frontend</title>

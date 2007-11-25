@@ -3,11 +3,15 @@
  * An example script that try to update PEAR::DB_DataObject
  * using PEAR_PackageUpdate with a Web front end.
  *
- * @author    Laurent Laville
+ * PHP versions 4 and 5
+ *
+ * @category  PEAR
  * @package   PEAR_PackageUpdate_Web
- * @version   $Id$
- * @license   http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @author    Laurent Laville <pear@laurent-laville.org>
  * @copyright 2006-2007 Laurent Laville
+ * @license   http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @version   CVS: $Id$
+ * @link      http://pear.php.net/package/PEAR_PackageUpdate_Web
  * @ignore
  */
 
