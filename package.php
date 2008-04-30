@@ -16,7 +16,7 @@
  * @category  PEAR
  * @package   PEAR_PackageUpdate_Web
  * @author    Laurent Laville <pear@laurent-laville.org>
- * @copyright 2007 The PHP Group
+ * @copyright 2007-2008 The PHP Group
  * @license   http://www.php.net/license/3_01.txt  PHP License 3.01
  * @version   CVS: $Id$
  * @link      http://pear.php.net/package/PEAR_PackageUpdate
@@ -37,24 +37,26 @@ $options = array('filelistgenerator' => 'cvs',
     'simpleoutput' => true,
     'clearcontents' => false,
     'changelogoldtonew' => false,
-    'ignore' => array('package.php')
+    'ignore' => array(__FILE__)
     );
 
 $p2 = &PEAR_PackageFileManager2::importOptions($packagefile, $options);
 $p2->setPackageType('php');
 $p2->addRelease();
 $p2->generateContents();
-$p2->setReleaseVersion('0.4.0');
+$p2->setReleaseVersion('1.0.0');
 $p2->setAPIVersion('1.0.0');
-$p2->setReleaseStability('beta');
-$p2->setAPIStability('beta');
-$p2->setNotes('* IMPORTANT
-This beta version will be the last one before final stable release 1.0.0
+$p2->setReleaseStability('stable');
+$p2->setAPIStability('stable');
+$p2->setNotes('
+Two years after proposal and first release (0.1.0), here are now the final stable version.
+
+No major changes since 0.4.0
 
 * changes
-- copyright notice bumped to 2007
-- removed PPU resource from main class.
-- prevent updating new copy of a package if it was not installed first
+- copyright bumped to 2008
+- phpdoc @since tag give version and release date information
+- make it XHTML 1.0 Strict compliant
 ');
 
 if (isset($_GET['make'])
