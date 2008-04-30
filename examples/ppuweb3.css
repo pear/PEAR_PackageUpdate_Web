@@ -1,3 +1,15 @@
+/**
+ * Stylesheet used to display a skin example for PEAR_PackageUpdate Web frontend
+ *
+ * @category   PEAR
+ * @package    PEAR_PackageUpdate_Web
+ * @author     Laurent Laville <pear@laurent-laville.org>
+ * @copyright  2006-2008 Laurent Laville
+ * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @version    CVS: $Id$
+ * @since      File available since Release 0.3.0
+ */
+
 body, td, th, h1, h2 {font-family: sans-serif;}
 a:link {color: #006600; text-decoration: none;}
 a:visited { color: #003300; text-decoration: none;}
