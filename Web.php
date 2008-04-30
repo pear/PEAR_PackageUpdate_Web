@@ -13,7 +13,7 @@
  * @category  PEAR
  * @package   PEAR_PackageUpdate_Web
  * @author    Laurent Laville <pear@laurent-laville.org>
- * @copyright 2006-2007 Laurent Laville
+ * @copyright 2006-2008 Laurent Laville
  * @license   http://www.php.net/license/3_01.txt  PHP License 3.01
  * @version   CVS: $Id$
  * @link      http://pear.php.net/package/PEAR_PackageUpdate_Web
@@ -81,7 +81,7 @@ require_once 'HTML/QuickForm.php';
  * @category  PEAR
  * @package   PEAR_PackageUpdate_Web
  * @author    Laurent Laville <pear@laurent-laville.org>
- * @copyright 2006-2007 Laurent Laville
+ * @copyright 2006-2008 Laurent Laville
  * @license   http://www.php.net/license/3_01.txt  PHP License 3.01
  * @version   Release: @package_version@
  * @link      http://pear.php.net/package/PEAR_PackageUpdate_Web
@@ -131,7 +131,7 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
      *
      * @access protected
      * @return void
-     * @since  0.1.0
+     * @since  version 0.1.0 (2006-04-30)
      */
     function createMainDialog()
     {
@@ -193,7 +193,7 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
      *
      * @access protected
      * @return void
-     * @since  0.1.0
+     * @since  version 0.1.0 (2006-04-30)
      */
     function createPrefDialog($prefs)
     {
@@ -276,7 +276,7 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
      *
      * @access protected
      * @return void
-     * @since  0.1.0
+     * @since  version 0.1.0 (2006-04-30)
      */
     function createErrorDialog($context = false)
     {
@@ -321,7 +321,7 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
      *
      * @access public
      * @return boolean true if the preferences were set and saved.
-     * @since  0.1.0
+     * @since  version 0.1.0 (2006-04-30)
      */
     function prefDialog()
     {
@@ -374,7 +374,7 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
      *
      * @access public
      * @return void
-     * @since  0.1.0
+     * @since  version 0.1.0 (2006-04-30)
      */
     function forceRestart()
     {
@@ -393,7 +393,7 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
      *
      * @access public
      * @return boolean true if an update is available.
-     * @since  0.4.0
+     * @since  version 0.4.0 (2007-07-01)
      */
     function checkUpdate()
     {
@@ -410,7 +410,7 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
      *
      * @access public
      * @return boolean true if the user would like to update the package.
-     * @since  0.1.0
+     * @since  version 0.1.0 (2006-04-30)
      */
     function presentUpdate()
     {
@@ -450,7 +450,7 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
      *
      * @access public
      * @return boolean true if an error was displayed.
-     * @since  0.1.0
+     * @since  version 0.1.0 (2006-04-30)
      */
     function errorDialog($context = false)
     {
@@ -509,7 +509,7 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
      *
      * @access protected
      * @return object  instance of a QuickForm renderer
-     * @since  0.1.0
+     * @since  version 0.1.0 (2006-04-30)
      */
     function &getHtmlRendererWithLabel(&$widget)
     {
@@ -556,7 +556,7 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
      *
      * @access protected
      * @return object  instance of a QuickForm renderer
-     * @since  0.1.0
+     * @since  version 0.1.0 (2006-04-30)
      */
     function &getHtmlRendererWithoutLabel(&$widget)
     {
@@ -607,7 +607,7 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
      *
      * @return string
      * @access public
-     * @since  0.3.0
+     * @since  version 0.3.0 (2006-07-17)
      */
     function getStyleSheet($content = true)
     {
@@ -626,7 +626,7 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
      *
      * @return bool    True if custom styles, false if default styles applied
      * @access public
-     * @since  0.3.0
+     * @since  version 0.3.0 (2006-07-17)
      */
     function setStyleSheet($css = null)
     {
@@ -651,7 +651,7 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
      *
      * @access public
      * @return string
-     * @since  0.1.0
+     * @since  version 0.1.0 (2006-04-30)
      */
     function toHtml($renderer)
     {
