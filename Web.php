@@ -397,12 +397,14 @@ class PEAR_PackageUpdate_Web extends PEAR_PackageUpdate
      */
     function checkUpdate()
     {
-        if (parent::checkUpdate()) {
+        $update_exists = parent::checkUpdate();
+        if ($update_exists === true) {
             if ($this->instVersion == '0.0.0') {
                 $this->pushError(PEAR_PACKAGEUPDATE_ERROR_NOTINSTALLED,
                     'warning', array('packagename' => $this->packageName));
             }
         }
+        return $update_exists;
     }
 
     /**
