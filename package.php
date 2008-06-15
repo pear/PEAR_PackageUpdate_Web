@@ -44,28 +44,20 @@ $p2 = &PEAR_PackageFileManager2::importOptions($packagefile, $options);
 $p2->setPackageType('php');
 $p2->addRelease();
 $p2->generateContents();
-$p2->setReleaseVersion('1.0.0');
+$p2->setReleaseVersion('1.0.1');
 $p2->setAPIVersion('1.0.0');
 $p2->setReleaseStability('stable');
 $p2->setAPIStability('stable');
-$p2->setNotes('
-Two years after proposal and first release (0.1.0), here are now the final stable version.
-
-No major changes since 0.4.0
+$p2->setNotes('* bugs
+- fix a notice error when trying to upgrade a package version still using package xml 1.0
 
 * changes
-- copyright bumped to 2008
-- phpdoc @since tag give version and release date information
-- make it XHTML 1.0 Strict compliant
-
-* QA
-- require now at least PEAR installer 1.5.4 rather than 1.4.8
-(security vulnerability fixes)
-- change minimum PPU package dependency
+- require now PEAR_PackageUpdate 1.0.2
+- checkUpdate() return now a boolean (as expected)
 ');
 
-$p2->setPearinstallerDep('1.5.4');
-$p2->addPackageDepWithChannel('required', 'PEAR_PackageUpdate', 'pear.php.net', '1.0.0');
+//$p2->setPearinstallerDep('1.5.4');
+$p2->addPackageDepWithChannel('required', 'PEAR_PackageUpdate', 'pear.php.net', '1.0.2');
 
 if (isset($_GET['make'])
     || (isset($_SERVER['argv']) && @$_SERVER['argv'][1] == 'make')) {

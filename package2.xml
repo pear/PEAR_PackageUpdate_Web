@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.7.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
+<package packagerversion="1.7.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
  <name>PEAR_PackageUpdate_Web</name>
  <channel>pear.php.net</channel>
  <summary>A Web front end for PEAR_PackageUpdate</summary>
@@ -12,10 +12,10 @@ PEAR_PackageUpdate_Web is a HTML web front end for PPU.</description>
   <email>pear@laurent-laville.org</email>
   <active>yes</active>
  </lead>
- <date>2008-05-01</date>
- <time>10:21:01</time>
+ <date>2008-06-15</date>
+ <time>16:13:20</time>
  <version>
-  <release>1.0.0</release>
+  <release>1.0.1</release>
   <api>1.0.0</api>
  </version>
  <stability>
@@ -23,20 +23,12 @@ PEAR_PackageUpdate_Web is a HTML web front end for PPU.</description>
   <api>stable</api>
  </stability>
  <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
- <notes>
-Two years after proposal and first release (0.1.0), here are now the final stable version.
-
-No major changes since 0.4.0
+ <notes>* bugs
+- fix a notice error when trying to upgrade a package version still using package xml 1.0
 
 * changes
-- copyright bumped to 2008
-- phpdoc @since tag give version and release date information
-- make it XHTML 1.0 Strict compliant
-
-* QA
-- require now at least PEAR installer 1.5.4 rather than 1.4.8
-(security vulnerability fixes)
-- change minimum PPU package dependency
+- require now PEAR_PackageUpdate 1.0.2
+- checkUpdate() return now a boolean (as expected)
  </notes>
  <contents>
   <dir baseinstalldir="PEAR/PackageUpdate" name="/">
@@ -68,7 +60,7 @@ No major changes since 0.4.0
    <package>
     <name>PEAR_PackageUpdate</name>
     <channel>pear.php.net</channel>
-    <min>1.0.0</min>
+    <min>1.0.2</min>
    </package>
    <package>
     <name>HTML_QuickForm</name>
@@ -81,6 +73,25 @@ No major changes since 0.4.0
  <changelog>
   <release>
    <version>
+    <release>1.0.1</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2008-06-15</date>
+   <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
+   <notes>* bugs
+- fix a notice error when trying to upgrade a package version still using package xml 1.0
+
+* changes
+- require now PEAR_PackageUpdate 1.0.2
+- checkUpdate() return now a boolean (as expected)
+   </notes>
+  </release>
+  <release>
+   <version>
     <release>1.0.0</release>
     <api>1.0.0</api>
    </version>
@@ -90,8 +101,7 @@ No major changes since 0.4.0
    </stability>
    <date>2008-05-01</date>
    <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
-   <notes>
-Two years after proposal and first release (0.1.0), here are now the final stable version.
+   <notes>Two years after proposal and first release (0.1.0), here are now the final stable version.
 
 No major changes since 0.4.0
 
@@ -103,8 +113,7 @@ No major changes since 0.4.0
 * QA
 - require now at least PEAR installer 1.5.4 rather than 1.4.8
 (security vulnerability fixes)
-- change minimum PPU package dependency
-   </notes>
+- change minimum PPU package dependency</notes>
   </release>
   <release>
    <version>
